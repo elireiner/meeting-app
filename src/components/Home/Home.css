@@ -1,0 +1,8 @@
+.homeNav{
+    height: 10%;
+}
+
+.homeBody {
+    display: flex;
+    flex-direction: column;
+}
