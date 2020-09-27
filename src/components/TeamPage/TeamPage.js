@@ -17,21 +17,25 @@ export default class MeetingPage extends React.Component {
             teamId.trim();
         }
 
-        //Get meeting object
+        //Get team object
         let team = teams.filter(team => Object.values(team).includes(teamId))[0]
 
-        //Set path and property for Assess link
-        const newTo = {
+        //Set path and property for create new meeting link
+        const meetingTo = {
             pathname: `/new-meeting/${teamId}`,
+            team: team
+        };
+        const trendsTo = {
+            pathname: `/team/trends/${teamId}`,
             team: team
         };
 
         return (
             <>
-              
                 <p>{team.name}</p>
                 <p>{team.department}</p>
-                <Link to={newTo}>Create a meeting with this team</Link>
+                <Link to={meetingTo}>Create a meeting with this team</Link>
+                <Link to={trendsTo}>Team trends</Link>
             </>
         )
     }
