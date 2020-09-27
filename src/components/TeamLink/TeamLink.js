@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default class TeamLink extends React.Component {
     render() {
-        console.log(this.props)
         const newTo = {
             pathname: `team/${this.props._id}`,
             team: this.props
