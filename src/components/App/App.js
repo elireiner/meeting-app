@@ -33,6 +33,7 @@ export default class App extends React.Component {
         <Route path="/team/:teamId" component={TeamPage} exact />{" "}
         <Route path="/new-meeting/:teamId" component={CreateMeeting} />{" "}
         <Route path="/team/trends/:teamId" component={TeamTrends} />{" "}
+        <Route path="/team-trends" component={Teams} />{" "}
       </div>
     )
   }
