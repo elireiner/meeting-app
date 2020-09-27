@@ -21,7 +21,7 @@ export default class MeetingPage extends React.Component {
         let meeting = meetings.filter(meeting => Object.values(meeting).includes(meetingId))[0]
 
         //Set path and property for Assess link
-        const newTo = {
+        const path = {
             pathname: `/assess/${meetingId}`,
             meeting: meeting
         };
@@ -33,7 +33,7 @@ export default class MeetingPage extends React.Component {
                 <p>{meeting.type}</p>
                 <p>{meeting.department}</p>
                 <p>{meeting.description}</p>
-                <Link to={newTo}>Assess</Link>
+                <Link to={path}>Assess</Link>
             </>
         )
     }

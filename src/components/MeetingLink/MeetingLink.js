@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default class MeetingLink extends React.Component {
     render() {
-        const newTo = { 
+        const path = { 
             pathname: `meeting/${this.props._id}`, 
             meeting: this.props
           };
         return (
             <>
-                <Link to={newTo}>{this.props.name}</Link>
+                <Link to={path}>{this.props.name}</Link>
             </>
         )
     }
