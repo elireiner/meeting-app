@@ -11,7 +11,7 @@ export default class Home extends React.Component {
                 <section className="homeBody">
                     <Link to='/new-meeting-teams'>Create meeting</Link>
                     <Link to='/meetings'>Your meetings</Link>
-                    <Link to='/teams'>Team trends</Link>
+                    <Link to='/team-trends'>Team trends</Link>
                 </section>
             </>
         )
