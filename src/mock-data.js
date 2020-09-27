@@ -1,50 +1,77 @@
 export const teams = [
   {
-    "_id": "5f6cbed2ad33496b2c1aa8a8",
-    "name": "Miracle Workers",
-    "department": "Sales"
+    "_id": "5f70996c6031d2cd5ea87e18",
+    "name": "Rustic Passion",
+    "department": "Sales",
+    "listening": 7,
+    "preparedness": 75,
+    "clarity": 42
   },
   {
-    "_id": "5f6cbed27e7ce1626650728c",
+    "_id": "5f70996cce412d0acc182b9c",
     "name": "Innovation Geeks",
-    "department": "Marketing"
+    "department": "Finance",
+    "listening": 96,
+    "preparedness": 22,
+    "clarity": 65
   },
   {
-    "_id": "5f6cbed2bf1f47857207f60a",
-    "name": "Mind Benders",
-    "department": "Sales"
-  },
-  {
-    "_id": "5f6cbed2ff80985883d04b13",
-    "name": "Heart Warmers",
-    "department": "Sales"
-  },
-  {
-    "_id": "5f6cbed25d5783ba8c2e6963",
-    "name": "Miracle Workers",
-    "department": "Marketing"
-  },
-  {
-    "_id": "5f6cbed2c517b2cc75861d50",
-    "name": "Heart Warmers",
-    "department": "Finance"
-  },
-  {
-    "_id": "5f6cbed2412869f0b45451b6",
-    "name": "Diva Drive",
-    "department": "Finance"
-  },
-  {
-    "_id": "5f6cbed22a9901b562fa6dc2",
+    "_id": "5f70996c7efe8625f53cc4a0",
     "name": "Innovation Geeks",
-    "department": "Sales"
+    "department": "Sales",
+    "listening": 2,
+    "preparedness": 42,
+    "clarity": 84
   },
   {
-    "_id": "5f6cbed28171ee716aa42566",
-    "name": "Prosper Gurus",
-    "department": "Finance"
+    "_id": "5f70996c4ab20a87d738df2d",
+    "name": "Heart Warmers",
+    "department": "Marketing",
+    "listening": 42,
+    "preparedness": 51,
+    "clarity": 54
+  },
+  {
+    "_id": "5f70996caf6e7cf74dbe24ab",
+    "name": "Rustic Passion",
+    "department": "Sales",
+    "listening": 68,
+    "preparedness": 62,
+    "clarity": 91
+  },
+  {
+    "_id": "5f70996c58f32a843debe64b",
+    "name": "Heart Warmers",
+    "department": "Finance",
+    "listening": 71,
+    "preparedness": 61,
+    "clarity": 56
+  },
+  {
+    "_id": "5f70996ce2134207e0b280b6",
+    "name": "Innovation Geeks",
+    "department": "Finance",
+    "listening": 42,
+    "preparedness": 29,
+    "clarity": 73
+  },
+  {
+    "_id": "5f70996cc2812f6982a9c693",
+    "name": "Innovation Geeks",
+    "department": "Marketing",
+    "listening": 50,
+    "preparedness": 95,
+    "clarity": 70
+  },
+  {
+    "_id": "5f70996cf7604eb67bf93e4b",
+    "name": "Heart Warmers",
+    "department": "Marketing",
+    "listening": 56,
+    "preparedness": 6,
+    "clarity": 64
   }
-];
+]
 
 export const meetings = [
     {
