@@ -9,8 +9,13 @@ export default class Teams extends React.Component {
      };*/
 
     render() {
+        let onlyTrends = false;
+        const path = this.props.match.path;
+        if (path === '/team-trends') {
+            onlyTrends = true;
+        }
 
-        const links = teams.map(team => <TeamLink {...team} />);
+        const links = teams.map(team => <TeamLink onlyTrends={onlyTrends} {...team} />);
         return (
             <>
                 <div className="search">
