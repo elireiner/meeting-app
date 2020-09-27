@@ -1,75 +1,53 @@
 export const teams = [
   {
-    "_id": "5f70996c6031d2cd5ea87e18",
-    "name": "Rustic Passion",
-    "department": "Sales",
-    "listening": 7,
-    "preparedness": 75,
-    "clarity": 42
-  },
-  {
-    "_id": "5f70996cce412d0acc182b9c",
-    "name": "Innovation Geeks",
-    "department": "Finance",
-    "listening": 96,
-    "preparedness": 22,
-    "clarity": 65
-  },
-  {
-    "_id": "5f70996c7efe8625f53cc4a0",
+    "_id": "5f709b2050905010d16b26d4",
     "name": "Innovation Geeks",
     "department": "Sales",
-    "listening": 2,
-    "preparedness": 42,
-    "clarity": 84
+    "metrics": {
+      "listening": 82,
+      "preparedness": 68,
+      "clarity": 30
+    }
   },
   {
-    "_id": "5f70996c4ab20a87d738df2d",
-    "name": "Heart Warmers",
-    "department": "Marketing",
-    "listening": 42,
-    "preparedness": 51,
-    "clarity": 54
-  },
-  {
-    "_id": "5f70996caf6e7cf74dbe24ab",
-    "name": "Rustic Passion",
-    "department": "Sales",
-    "listening": 68,
-    "preparedness": 62,
-    "clarity": 91
-  },
-  {
-    "_id": "5f70996c58f32a843debe64b",
-    "name": "Heart Warmers",
+    "_id": "5f709b2002cae6197c87ce09",
+    "name": "Miracle Workers",
     "department": "Finance",
-    "listening": 71,
-    "preparedness": 61,
-    "clarity": 56
+    "metrics": {
+      "listening": 29,
+      "preparedness": 89,
+      "clarity": 76
+    }
   },
   {
-    "_id": "5f70996ce2134207e0b280b6",
+    "_id": "5f709b20b7b7b7b6d414c120",
     "name": "Innovation Geeks",
     "department": "Finance",
-    "listening": 42,
-    "preparedness": 29,
-    "clarity": 73
+    "metrics": {
+      "listening": 87,
+      "preparedness": 63,
+      "clarity": 70
+    }
   },
   {
-    "_id": "5f70996cc2812f6982a9c693",
-    "name": "Innovation Geeks",
+    "_id": "5f709b20d0bc44a846e37c4f",
+    "name": "Quest Pirates",
     "department": "Marketing",
-    "listening": 50,
-    "preparedness": 95,
-    "clarity": 70
+    "metrics": {
+      "listening": 25,
+      "preparedness": 79,
+      "clarity": 88
+    }
   },
   {
-    "_id": "5f70996cf7604eb67bf93e4b",
-    "name": "Heart Warmers",
+    "_id": "5f709b20f0c3635ff2f4564d",
+    "name": "Prosper Gurus",
     "department": "Marketing",
-    "listening": 56,
-    "preparedness": 6,
-    "clarity": 64
+    "metrics": {
+      "listening": 25,
+      "preparedness": 37,
+      "clarity": 67
+    }
   }
 ]
 
