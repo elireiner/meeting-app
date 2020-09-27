@@ -8,6 +8,7 @@ import MeetingPage from '../MeetingPage/MeetingPage';
 import Assess from '../Assess/Assess';
 import TeamPage from '../TeamPage/TeamPage';
 import CreateMeeting from '../CreateMeeting/CreateMeeting';
+import TeamTrends from '../TeamTrends/TeamTrends';
 
 export default class App extends React.Component {
 
@@ -29,8 +30,9 @@ export default class App extends React.Component {
         <Route path="/teams" component={Teams} />{" "}
         <Route path="/meeting/:meetingId" component={MeetingPage} />{" "}
         <Route path="/assess/:meetingId" component={Assess} />{" "}
-        <Route path="/team/:teamId" component={TeamPage} />{" "}
+        <Route path="/team/:teamId" component={TeamPage} exact />{" "}
         <Route path="/new-meeting/:teamId" component={CreateMeeting} />{" "}
+        <Route path="/team/trends/:teamId" component={TeamTrends} />{" "}
       </div>
     )
   }
