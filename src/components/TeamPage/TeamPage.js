@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { teams } from '../../mock-data';
 
-export default class MeetingPage extends React.Component {
+export default class TeamPage extends React.Component {
     render() {
 
         // Get team id
