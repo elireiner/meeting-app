@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { teams } from '../../mock-data';
 
 export default class TeamPage extends React.Component {
     render() {
@@ -18,8 +17,7 @@ export default class TeamPage extends React.Component {
         }
 
         //Get team object
-        let team = teams.filter(team => Object.values(team).includes(teamId))[0]
-
+        let team = this.props.team;
         //Set path and property for create new meeting link
         const meetingTo = {
             pathname: `/new-meeting/${teamId}`,
@@ -32,8 +30,7 @@ export default class TeamPage extends React.Component {
 
         return (
             <>
-                <p>{team.name}</p>
-                <p>{team.department}</p>
+               
                 <Link to={meetingTo}>Create a meeting with this team</Link>
                 <Link to={trendsTo}>Team trends</Link>
             </>
