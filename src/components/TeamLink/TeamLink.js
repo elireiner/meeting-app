@@ -8,21 +8,20 @@ export default class TeamLink extends React.Component {
 
         if (!onlyTrends) {
             path = {
-                pathname: `team/${this.props._id}`,
-                team: this.props
+                pathname: `/team/${this.props.team._id}`,
+                team: this.props.team
             }
         };
 
-
         if (onlyTrends) {
             path = {
-                pathname: `/team/trends/${this.props._id}`,
-                team: this.props
+                pathname: `/team/trends/${this.props.team._id}`,
+                team: this.props.team
             }
         };
         
         return (
-            <Link to={path}>{this.props.name}</Link>
+            <Link to={path}>{this.props.team.teams_name}</Link>
         )
     }
 }
