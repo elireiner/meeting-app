@@ -1,0 +1,75 @@
+import config from '../config'
+//import TokenService from './token-service'
+
+const MeetingsApiService = {
+  getAllTeams() {
+    return fetch(`${config.API_ENDPOINT}/teams`, {
+      headers: {
+        'authorization': `Bearer ${config.API_KEY}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+
+  getTeamsForUser(user) {
+    return fetch(`${config.API_ENDPOINT}/teams/${user}`, {
+      headers: {
+        'authorization': `Bearer ${config.API_KEY}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+
+ /* getArticle(articleId) {
+    return fetch(`${config.API_ENDPOINT}/articles/${articleId}`, {
+      headers: {
+        'authorization': `basic ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  getArticleComments(articleId) {
+    return fetch(`${config.API_ENDPOINT}/articles/${articleId}/comments`, {
+      headers: {
+        'authorization': `basic ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  postComment(articleId, text) {
+    return fetch(`${config.API_ENDPOINT}/comments`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `basic ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        article_id: articleId,
+        text,
+      }),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  }*/
+}
+
+export default MeetingsApiService
