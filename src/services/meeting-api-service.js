@@ -15,8 +15,8 @@ const MeetingsApiService = {
       )
   },
 
-  getMeetingsForUser(user) {
-    return fetch(`${config.API_ENDPOINT}/meetings/${user}`, {
+  getMeetingsForUser(userId) {
+    return fetch(`${config.API_ENDPOINT}/meetings/user/${userId}`, {
       headers: {
         'authorization': `Bearer ${config.API_KEY}`,
       },
@@ -28,10 +28,10 @@ const MeetingsApiService = {
       )
   },
 
- /* getMeeting(meetingId) {
-    return fetch(`${config.API_ENDPOINT}/meetings/${meetingId}`, {
+  getMeeting(meetingId) {
+    return fetch(`${config.API_ENDPOINT}/meetings/meeting/${meetingId}`, {
       headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `Bearer ${config.API_KEY}`,
       },
     })
       .then(res =>
@@ -40,36 +40,22 @@ const MeetingsApiService = {
           : res.json()
       )
   },
-  getMeetingComments(meetingId) {
-    return fetch(`${config.API_ENDPOINT}/meetings/${meetingId}/comments`, {
-      headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`,
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
-  postComment(meetingId, text) {
-    return fetch(`${config.API_ENDPOINT}/comments`, {
+
+  postMeeting(meetingData) {
+    return fetch(`${config.API_ENDPOINT}/meetings`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `Bearer ${config.API_KEY}`,
       },
-      body: JSON.stringify({
-        meeting_id: meetingId,
-        text,
-      }),
+      body: JSON.stringify(meetingData),
     })
       .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-  }*/
+  }
 }
 
 export default MeetingsApiService
