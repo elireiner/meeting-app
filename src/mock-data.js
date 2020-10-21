@@ -133,3 +133,5 @@ export const meetings = [
       "timestamp": 1414955039865
     }
   ];
+
+  export const currentUser = 1;
