@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from '../Home/Home';
+import Home from '../../routes/Home/Home';
 import NewMeeting from '../NewMeeting/NewMeeting';
 import Meetings from '../Meetings/Meetings';
 import TeamListPage from '../../routes/TeamListPage/TeamListPage.js';
