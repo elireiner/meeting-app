@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../../routes/Home/Home';
 import NewMeeting from '../NewMeeting/NewMeeting';
-import Meetings from '../Meetings/Meetings';
 import TeamListPage from '../../routes/TeamListPage/TeamListPage.js';
+import MeetingsListPage from '../../routes/MeetingsListPage/MeetingListPage.js';
 import MeetingPage from '../MeetingPage/MeetingPage';
 import Assess from '../Assess/Assess';
 import TeamPage from '../TeamPage/TeamPage';
@@ -37,7 +37,7 @@ export default class App extends React.Component {
           />
           <Route
             path='/meetings'
-            component={Meetings}
+            component={MeetingsListPage}
           />
           <Route
             path='/meeting/:meetingId'
