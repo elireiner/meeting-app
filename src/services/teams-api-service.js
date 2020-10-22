@@ -1,7 +1,7 @@
 import config from '../config'
 //import TokenService from './token-service'
 
-const MeetingsApiService = {
+const TeamsApiService = {
   getAllTeams() {
     return fetch(`${config.API_ENDPOINT}/teams`, {
       headers: {
@@ -72,4 +72,4 @@ const MeetingsApiService = {
   }*/
 }
 
-export default MeetingsApiService
+export default TeamsApiService
