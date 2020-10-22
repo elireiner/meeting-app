@@ -1,29 +1,29 @@
 import React, { Component } from 'react'
 
-const MeetingsContext = React.createContext({
-  meetingList: [],
-  usersMeetingList: [],
+const TeamsContext = React.createContext({
+  teamList: [],
+  usersTeamList: [],
   error: null,
   setError: () => {},
   clearError: () => {},
-  setMeetingList: () => {},
-  setUsersMeetingList: () => {}
+  setTeamList: () => {},
+  setUsersTeamList: () => {}
 })
-export default MeetingsContext
+export default TeamsContext
 
-export class MeetingListProvider extends Component {
+export class TeamsProvider extends Component {
   state = {
-    meetingList: [],
-    usersMeetingList: [],
+    teamList: [],
+    usersTeamList: [],
     error: null,
   };
 
-  setMeetingList = meetingList => {
-    this.setState({ meetingList })
+  setTeamList = teamList => {
+    this.setState({ teamList })
   }
 
-  setUsersMeetingList = usersMeetingList => {
-    this.setState({ usersMeetingList })
+  setUsersTeamList = usersTeamList => {
+    this.setState({ usersTeamList })
   }
 
   setError = error => {
@@ -37,18 +37,18 @@ export class MeetingListProvider extends Component {
 
   render() {
     const value = {
-      meetingList: this.state.meetingList,
-      usersMeetingList: this.state.usersMeetingList,
+      teamList: this.state.teamList,
+      usersTeamList: this.state.usersTeamList,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setMeetingList: this.setMeetingList,
-      setUsersMeetingList: this.setUsersMeetingList
+      setTeamList: this.setTeamList,
+      setUsersTeamList: this.setUsersTeamList
     }
     return (
-      <MeetingsContext.Provider value={value}>
+      <TeamsContext.Provider value={value}>
         {this.props.children}
-      </MeetingsContext.Provider>
+      </TeamsContext.Provider>
     )
   }
 }
