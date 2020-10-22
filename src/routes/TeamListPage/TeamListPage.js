@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TeamListContext from '../../contexts/TeamListContext'
-import TeamApiService from '../../services/team-api-service'
+import TeamApiService from '../../services/teams-api-service'
 import { Section } from '../../components/Utils/Utils'
 import TeamLink from '../../components/TeamLink/TeamLink'
 
@@ -14,7 +14,10 @@ export default class TeamListPage extends Component {
     // TODO: change dynamically depending on user
     let currentUser = 1
     await TeamApiService.getTeamsForUser(currentUser)
-      .then(this.context.setUserTeamList)
+      .then((res) => {
+        console.log('I"m here', res)
+      })
+      .then(this.context.setUsersTeamList)
       .catch(this.context.setError)
 
     TeamApiService.getAllTeams()
@@ -23,21 +26,34 @@ export default class TeamListPage extends Component {
   }
 
   renderTeams() {
+    console.log(this.props)
     let onlyTrends = false;
     const path = this.props.match.path;
     if (path === '/team-trends') {
       onlyTrends = true;
     }
-    const { teamList = [] } = this.context
-    console.log(this.context.teamList)
-    console.log(this.context.userTeamList)
-    return teamList.map(team =>
-      <TeamLink
-        key={team.id}
-        team={team}
-        onlyTrends={onlyTrends}
-      />
-    )
+
+    if (this.props.allTeams) {
+      const { teamList = [] } = this.context
+      return teamList.map(team =>
+        <TeamLink
+          key={team.id}
+          team={team}
+          onlyTrends={onlyTrends}
+        />
+      )
+    }
+    else if (!this.props.allTeams){
+      const { usersTeamList = [] } = this.context
+      return usersTeamList.map(team =>
+        <TeamLink
+          key={team.id}
+          team={team}
+          onlyTrends={onlyTrends}
+        />
+      )
+    }
+
   }
 
   render() {

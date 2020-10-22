@@ -2,17 +2,19 @@ import React, { Component } from 'react'
 
 const TeamListContext = React.createContext({
   teamList: [],
+  usersTeamList: [],
   error: null,
   setError: () => {},
   clearError: () => {},
   setTeamList: () => {},
+  setUsersTeamList: () => {}
 })
 export default TeamListContext
 
 export class TeamListProvider extends Component {
   state = {
     teamList: [],
-    userTeamList: [],
+    usersTeamList: [],
     error: null,
   };
 
@@ -20,8 +22,8 @@ export class TeamListProvider extends Component {
     this.setState({ teamList })
   }
 
-  setUserTeamList = userTeamList => {
-    this.setState({ userTeamList })
+  setUsersTeamList = usersTeamList => {
+    this.setState({ usersTeamList })
   }
 
   setError = error => {
@@ -36,12 +38,12 @@ export class TeamListProvider extends Component {
   render() {
     const value = {
       teamList: this.state.teamList,
-      userTeamList: this.state.userTeamList,
+      usersTeamList: this.state.usersTeamList,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
       setTeamList: this.setTeamList,
-      setUserTeamList: this.setUserTeamList
+      setUsersTeamList: this.setUsersTeamList
     }
     return (
       <TeamListContext.Provider value={value}>
