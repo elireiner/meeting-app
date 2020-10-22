@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import TeamListContext from '../../contexts/TeamListContext'
+import TeamsContext from '../../contexts/TeamsContext'
 import TeamApiService from '../../services/teams-api-service'
 import { Section } from '../../components/Utils/Utils'
 import TeamLink from '../../components/TeamLink/TeamLink'
 
 export default class TeamListPage extends Component {
-  static contextType = TeamListContext
+  static contextType = TeamsContext
 
   async componentDidMount() {
     this.context.clearError()
