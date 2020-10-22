@@ -14,9 +14,6 @@ export default class TeamListPage extends Component {
     // TODO: change dynamically depending on user
     let currentUser = 1
     await TeamApiService.getTeamsForUser(currentUser)
-      .then((res) => {
-        console.log('I"m here', res)
-      })
       .then(this.context.setUsersTeamList)
       .catch(this.context.setError)
 
@@ -26,28 +23,30 @@ export default class TeamListPage extends Component {
   }
 
   renderTeams() {
-    console.log(this.props)
     let onlyTrends = false;
     const path = this.props.match.path;
     if (path === '/team-trends') {
       onlyTrends = true;
     }
 
-    if (this.props.allTeams) {
+    if (this.props.location.state.allTeams) {
       const { teamList = [] } = this.context
+
       return teamList.map(team =>
         <TeamLink
-          key={team.id}
+          key={team.team_id}
           team={team}
           onlyTrends={onlyTrends}
         />
       )
     }
-    else if (!this.props.allTeams){
+
+    else if (!this.props.location.state.allTeams) {
       const { usersTeamList = [] } = this.context
+
       return usersTeamList.map(team =>
         <TeamLink
-          key={team.id}
+          key={team.team_id}
           team={team}
           onlyTrends={onlyTrends}
         />

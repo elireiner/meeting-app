@@ -7,12 +7,12 @@ export default class NewMeeting extends React.Component {
     render() {
         const usersTeams = { 
             pathname: `/teams`, 
-            allTeams: false
+            state: { allTeams: false }
           };
 
         const allTeams = { 
             pathname: `/teams`, 
-            allTeams: true
+            state: { allTeams: true }
           };
         return (
             <>
