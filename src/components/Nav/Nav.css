@@ -1,0 +1,51 @@
+.Nav {
+    height: 6em;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+  
+  .Nav h1 {
+    margin: 0;
+  }
+  
+  .Nav h1 a {
+    text-decoration: none;
+  }
+  
+  .Nav a {
+    color: #444;
+  }
+  .Nav__logged-in{
+    width: 100%;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Nav__not-logged-in {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Nav__not-logged-in .Hyph {
+    display: none;
+  }
+  
+  @media screen and (min-width: 450px) {
+    .Nav {
+      align-items: baseline;
+    }
+    .Nav h1 {
+      font-size: 22pt;
+    }
+  
+    .Nav__not-logged-in {
+      flex-direction: row;
+    }
+  
+    .Nav__not-logged-in .Hyph {
+      display: initial;
+    }
+  }
+  
