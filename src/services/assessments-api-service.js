@@ -42,7 +42,7 @@ const AssessmentsApiService = {
   },
 
   getAssessmentTrends(user) {
-    return fetch(`${config.API_ENDPOINT}/assessments/trends/${user}`, {
+    return fetch(`${config.API_ENDPOINT}/assessments/trends/cumulative/${user}`, {
       headers: {
         'authorization': `Bearer ${config.API_KEY}`,
       },
@@ -54,8 +54,8 @@ const AssessmentsApiService = {
       )
   },
 
-  getAssessmentTrendsForMeeting(user, recurringMeetingId) {
-    return fetch(`${config.API_ENDPOINT}/assessments/trends/${user}/${recurringMeetingId}`, {
+  getAssessmentTrendsForRecurringMeeting(user, recurringMeetingId) {
+    return fetch(`${config.API_ENDPOINT}/assessments/trends/cumulative/${user}/${recurringMeetingId}`, {
       headers: {
         'authorization': `Bearer ${config.API_KEY}`,
       },
