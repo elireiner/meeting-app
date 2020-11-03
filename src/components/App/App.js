@@ -8,6 +8,7 @@ import MeetingPage from '../MeetingPage/MeetingPage';
 import Assess from '../Assess/Assess';
 import TeamPage from '../TeamPage/TeamPage';
 import CreateMeeting from '../CreateMeeting/CreateMeeting';
+import MeetingTrends from '../MeetingTrends/MeetingTrends';
 import TeamTrends from '../TeamTrends/TeamTrends';
 
 export default class App extends React.Component {
@@ -27,7 +28,7 @@ export default class App extends React.Component {
               />
             )}
           />
-           <Route
+          <Route
             path='/teams'
             component={TeamListPage}
           />
@@ -38,6 +39,10 @@ export default class App extends React.Component {
           <Route
             path='/meetings'
             component={MeetingsListPage}
+          />
+          <Route
+            path='/recurring-meeting/:meetingId/trends'
+            component={MeetingTrends}
           />
           <Route
             path='/meeting/:meetingId'
@@ -60,8 +65,8 @@ export default class App extends React.Component {
             component={TeamTrends}
           />
           <Route
-            path='/team-trends'
-            component={TeamListPage}
+            path='/trends'
+            component={MeetingsListPage}
           />
         </Switch>
       </div>
