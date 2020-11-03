@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import TeamsContext from '../../contexts/TeamsContext'
-import TeamApiService from '../../services/teams-api-service'
-import { Section } from '../../components/Utils/Utils'
-import TeamLink from '../../components/TeamLink/TeamLink'
+import React, { Component } from 'react';
+import TeamsContext from '../../contexts/TeamsContext';
+import TeamApiService from '../../services/teams-api-service';
+import { Section } from '../../components/Utils/Utils';
+import TeamLink from '../../components/TeamLink/TeamLink';
+import Nav from '../../components/Nav/Nav';
 
 export default class TeamListPage extends Component {
   static contextType = TeamsContext
@@ -59,6 +60,7 @@ export default class TeamListPage extends Component {
     const { error } = this.context
     return (
       <Section list className='TeamListPage'>
+          <Nav />
         {error
           ? <p className='red'>There was an error, try again</p>
           : this.renderTeams()}

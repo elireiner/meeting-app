@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Nav from '../Nav/Nav'
 
 export default class TeamPage extends React.Component {
     render() {
@@ -30,7 +31,7 @@ export default class TeamPage extends React.Component {
 
         return (
             <>
-               
+                       <Nav /> 
                 <Link to={meetingTo}>Create a meeting with this team</Link>
                 <Link to={trendsTo}>Team trends</Link>
             </>
