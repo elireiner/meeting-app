@@ -1,9 +1,8 @@
 import React from 'react';
-import { teams } from '../../mock-data';
 
 export default class TeamTrends extends React.Component {
     render() {
-        // Get team id
+       /* // Get team id
         let teamId;
         if (this.props.match.params.teamId) {
             teamId = this.props.match.params.teamId;
@@ -20,14 +19,18 @@ export default class TeamTrends extends React.Component {
 
         //Get team metrics
         const teamMetrics = team.metrics;
-      
+      */
         return (
             <>
-                <h1>Team {team.name}'s metrics</h1>
+                <h1>Team {//team.name
+                }'s metrics</h1>
                 <ul>
-                    <li>Listening: {teamMetrics.listening}</li>
-                    <li>Preparedness: {teamMetrics.preparedness}</li>
-                    <li>Clarity: {teamMetrics.clarity}</li>
+                    {/*<li>How nessecery was this meeting?: {teamMetrics.listening}</li>
+                    <li>Befoe the meeting, how well did we clearify the desired outcomes?: {teamMetrics.preparedness}</li>
+                    <li>How well did we stay on point?: {teamMetrics.clarity}</li>
+                    <li>How well did we summarize and agree on next steps?: {teamMetrics.listening}</li>
+                    <li>How strongly did we encourage open discussion?: {teamMetrics.preparedness}</li>
+            */}
                 </ul>
             </>
         )
