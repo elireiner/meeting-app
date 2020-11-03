@@ -63,8 +63,8 @@ export default class CreateMeeting extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         const newMeeting = {
-            name: this.state.name,
-            type: this.state.type,
+            meeting_name: this.state.name,
+            meeting_type: this.state.type,
             recurring: this.state.recurring,
             description: this.state.description,
             meeting_time: this.createDate(),
