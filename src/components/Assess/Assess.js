@@ -75,12 +75,24 @@ export default class Assess extends React.Component {
     }
 
     handleSubmit = e => {
+
         e.preventDefault();
         const assessments = this.organizeData()
-        assessments.map(assessment => {
-           return AssessmentsApiService.postAssessment(assessment)
-        })
+
+        const sendData = async () => {
+            return Promise.all(assessments.map(assessment => {
+                return AssessmentsApiService.postAssessment(assessment)
+            }))
+        }
+
+        sendData()
+            .then(res => {
+                this.setState({
+                    lastMessage: 'Success! New assessment created!'
+                })
+            })
     };
+
     render() {
         return (
             <>
@@ -168,7 +180,11 @@ export default class Assess extends React.Component {
                     </div>
 
                 </form>
-
+         {
+                    (this.state.lastMessage) ?
+                        <p>{this.state.lastMessage}</p> :
+                        <div></div>
+                }
             </>
         )
     }
