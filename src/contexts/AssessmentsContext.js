@@ -48,7 +48,7 @@ export class AssessmentsProvider extends Component {
     const value = {
       meetingList: this.state.meetingList,
       usersAssessmentList: this.state.usersAssessmentList,
-      recurringAssessmentList: this.state.recurringAssessmentList,
+      usersRecurringAssessmentList: this.state.usersRecurringAssessmentList,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
