@@ -41,8 +41,8 @@ const AssessmentsApiService = {
       )
   },
 
-  getAssessmentTrends(user) {
-    return fetch(`${config.API_ENDPOINT}/assessments/trends/cumulative/${user}`, {
+  getAssessmentTrends(user, recurringMeetingId) {
+    return fetch(`${config.API_ENDPOINT}/assessments/trends/cumulative/${user}/${recurringMeetingId}`, {
       headers: {
         'authorization': `Bearer ${config.API_KEY}`,
       },
@@ -68,7 +68,7 @@ const AssessmentsApiService = {
   },
 
   postAssessment(AssessmentData) {
-    return fetch(`${config.API_ENDPOINT}/`, {
+    return fetch(`${config.API_ENDPOINT}/assessments`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
