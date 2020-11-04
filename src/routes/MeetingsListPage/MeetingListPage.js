@@ -31,22 +31,6 @@ export default class MeetingsListPage extends Component {
     let onlyTrends = false;
     const state = this.props.location.state;
 
-    /*const path = this.props.match.path;
-    if (path === '/meeting-trends') {
-      onlyTrends = true;
-    }*/
-
-    /* if (this.props.location.state.allMeetings) {
-       const { meetingList = [] } = this.context
- 
-       return meetingList.map(meeting =>
-         <MeetingLink
-           key={meeting.meeting_id}
-           meeting={meeting}
-           onlyTrends={onlyTrends}
-         />
-       )
-     }*/
     if (state.recurringMeetings) {
       const { recurringMeetingList = [] } = this.context
 
@@ -54,6 +38,7 @@ export default class MeetingsListPage extends Component {
         onlyRecurring: true,
         onlyTrends: true
       }
+
 
       return recurringMeetingList.map(meeting =>
         <MeetingLink
