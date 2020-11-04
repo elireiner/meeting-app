@@ -70,7 +70,13 @@ export default class CreateMeeting extends React.Component {
             meeting_time: this.createDate(),
         }
         MeetingsApiService.postMeeting(newMeeting)
-    };
+            .then(tutor => {
+                this.setState({
+                    lastMessage: 'Success! New meeting created!'
+                })
+
+            })
+    }
 
     render() {
         return (
@@ -154,6 +160,11 @@ export default class CreateMeeting extends React.Component {
                         />
                     </div>
                 </form>
+                {
+                    (this.state.lastMessage) ?
+                        <p>{this.state.lastMessage}</p> :
+                        <div></div>
+                }
 
             </>
         )
