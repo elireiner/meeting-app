@@ -80,9 +80,9 @@ export default class Assess extends React.Component {
         const assessments = this.organizeData()
 
         const sendData = async () => {
-            return Promise.all(assessments.map(assessment => {
+            return await assessments.map(assessment => {
                 return AssessmentsApiService.postAssessment(assessment)
-            }))
+            })
         }
 
         sendData()
