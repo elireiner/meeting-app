@@ -55,7 +55,21 @@ const MeetingsApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-  }
+  },
+
+  getRecurringMeeting(userId) {
+
+    return fetch(`${config.API_ENDPOINT}/meetings/recurring/${userId}`, {
+      headers: {
+        'authorization': `Bearer ${config.API_KEY}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
 }
 
 export default MeetingsApiService
