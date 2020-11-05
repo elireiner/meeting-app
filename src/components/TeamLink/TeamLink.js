@@ -19,9 +19,9 @@ export default class TeamLink extends React.Component {
                 team: this.props.team
             }
         };
-        
+
         return (
-            <Link to={path}>{this.props.team.teams_name}</Link>
+            <li> <Link to={path}>{this.props.team.teams_name}</Link></li>
         )
     }
 }
