@@ -31,7 +31,7 @@ export default class TeamPage extends React.Component {
 
         return (
             <>
-                       <Nav /> 
+                <Nav />
                 <Link to={meetingTo}>Create a meeting with this team</Link>
                 <Link to={trendsTo}>Team trends</Link>
             </>
