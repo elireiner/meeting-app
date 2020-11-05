@@ -9,7 +9,7 @@ export default class Nav extends Component {
   }
 
   renderHomeNav() {
-    const trends = { 
+    const path = { 
         pathname: `/trends`, 
         state: { recurringMeetings: true }
       };
@@ -17,7 +17,7 @@ export default class Nav extends Component {
       <div className='Nav__logged-in'>
           <h1>Meeting App</h1>
         <Link
-          to={trends}>
+          to={path}>
           Trends
         </Link>
       </div>
@@ -25,13 +25,13 @@ export default class Nav extends Component {
   }
 
   renderNonHomeNav() {
-    const trends = { 
+    const path = { 
         pathname: `/`,
       };
     return (
       <div className='Nav__logged-in'>
         <Link
-          to={trends}>
+          to={path}>
           Home
         </Link>
       </div>
