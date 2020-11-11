@@ -3,7 +3,7 @@ import MeetingsContext from '../../contexts/MeetingsContext'
 import MeetingApiService from '../../services/meetings-api-service'
 import { Section } from '../../components/Utils/Utils'
 import MeetingLink from '../../components/MeetingLink/MeetingLink'
-//import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/Nav/Nav';
 
 export default class MeetingsListPage extends Component {
   static contextType = MeetingsContext
@@ -67,16 +67,18 @@ export default class MeetingsListPage extends Component {
   render() {
     const { error } = this.context
     return (
-      <Section list className='MeetingsListPage'>
-        {//<Nav />
-        }
-        {//TODO: render the heading below
-        }
-        <h1>Your meetings</h1>
-        {error
-          ? <p className='red'>There was an error, try again</p>
-          : this.renderMeetings()}
-      </Section>
+      <>
+        <Nav />
+        <Section list className='MeetingsListPage'>
+
+          {//TODO: render the heading below
+          }
+          <h1>Your meetings</h1>
+          {error
+            ? <p className='red'>There was an error, try again</p>
+            : this.renderMeetings()}
+        </Section>
+      </>
     )
   }
 }
