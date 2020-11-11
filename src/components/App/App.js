@@ -10,6 +10,7 @@ import TeamPage from '../TeamPage/TeamPage';
 import CreateMeeting from '../CreateMeeting/CreateMeeting';
 import MeetingTrends from '../MeetingTrends/MeetingTrends';
 import TeamTrends from '../TeamTrends/TeamTrends';
+import './App.css';
 
 export default class App extends React.Component {
 
