@@ -1,6 +1,7 @@
 import React from 'react';
 import AssessmentsContext from '../../contexts/AssessmentsContext'
 import AssessmentsApiService from '../../services/assessments-api-service'
+import Nav from '../Nav/Nav';
 
 export default class MeetingTrends extends React.Component {
     static contextType = AssessmentsContext
@@ -24,6 +25,7 @@ export default class MeetingTrends extends React.Component {
         })
         return (
             <>
+               <Nav />
             <h1>Cumulative average for recurring meeting {this.props.location.state.meeting.meeting_id} </h1>
                 <ul>
                     {metrics}

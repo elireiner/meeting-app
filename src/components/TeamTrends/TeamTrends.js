@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../Nav/Nav';
 
 export default class TeamTrends extends React.Component {
     render() {
@@ -22,6 +23,7 @@ export default class TeamTrends extends React.Component {
       */
         return (
             <>
+               <Nav />
                 <h1>Team {//team.name
                 }'s metrics</h1>
                 <ul>
