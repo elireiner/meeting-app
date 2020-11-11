@@ -16,7 +16,9 @@ export default class Nav extends Component {
     return (
       <div className='Nav__logged-in'>
           <h1>Meeting App</h1>
+          <Link  className="nav-link new-meeting-link" to='/new-meeting-teams'>Create meeting</Link>
         <Link
+        className="nav-link trends-link"
           to={path}>
           Trends
         </Link>
@@ -30,7 +32,9 @@ export default class Nav extends Component {
       };
     return (
       <div className='Nav__logged-in'>
+        <h1>Meeting App</h1>
         <Link
+          className="nav-link home-link"
           to={path}>
           Home
         </Link>
