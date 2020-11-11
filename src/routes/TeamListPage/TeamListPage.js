@@ -59,12 +59,14 @@ export default class TeamListPage extends Component {
   render() {
     const { error } = this.context
     return (
-      <Section list className='TeamListPage'>
-          <Nav />
-        {error
-          ? <p className='red'>There was an error, try again</p>
-          : this.renderTeams()}
-      </Section>
+      <>
+        <Nav />
+        <Section list className='TeamListPage'>
+          {error
+            ? <p className='red'>There was an error, try again</p>
+            : this.renderTeams()}
+        </Section>
+      </>
     )
   }
 }
