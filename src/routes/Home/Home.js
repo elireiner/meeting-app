@@ -47,7 +47,6 @@ export default class Home extends React.Component {
             <>
                 <Nav page="home" />
                 <section className="homeBody">
-                    <Link to='/new-meeting-teams'>Create meeting</Link>
                     <Section list className='MeetingsListPage'>
                         {error
                             ? <p className='red'>There was an error, try again</p>
