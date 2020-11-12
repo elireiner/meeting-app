@@ -10,17 +10,17 @@ export default class Nav extends Component {
 
   renderHomeNav() {
     const path = { 
-        pathname: `/trends`, 
-        state: { recurringMeetings: true }
+        pathname: `/meetings`, 
+        state: { recurringMeetings: false }
       };
     return (
       <div className='Nav__logged-in'>
           <h1>Meeting App</h1>
           <Link  className="nav-link new-meeting-link" to='/new-meeting-teams'>Create meeting</Link>
         <Link
-        className="nav-link trends-link"
+        className="nav-link All-meetings-link"
           to={path}>
-          Trends
+          All Meetings
         </Link>
       </div>
     )

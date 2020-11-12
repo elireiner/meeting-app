@@ -16,26 +16,27 @@ export default class Home extends React.Component {
 
         // TODO: change dynamically depending on user
         let currentUser = 1
-        await MeetingApiService.getMeetingsForUser(currentUser)
-            .then(this.context.setUsersMeetingList)
+        await MeetingApiService.getRecurringMeeting(currentUser)
+            .then(this.context.setRecurringMeetingList)
             .catch(this.context.setError)
 
     }
 
     renderMeetings() {
-        let onlyTrends = false;
+        const { recurringMeetingList = [] } = this.context
 
-        const { usersMeetingList = [] } = this.context
-        console.log(usersMeetingList)
-        return usersMeetingList.map(meeting =>
+        const render = {
+            onlyTrends: true,
+            onlyRecurring: true
+        };
+
+        return recurringMeetingList.map(meeting =>
             <MeetingLink
                 key={meeting.meeting_id}
                 meeting={meeting}
-                onlyTrends={onlyTrends}
+                render={render}
             />
         )
-
-        // }
 
     }
 
