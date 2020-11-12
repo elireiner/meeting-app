@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../MainLinks';
 
 export default class TeamLink extends React.Component {
     render() {
@@ -21,7 +22,7 @@ export default class TeamLink extends React.Component {
         };
 
         return (
-            <li> <Link to={path}>{this.props.team.teams_name}</Link></li>
+            <Link to={path}>{this.props.team.teams_name}</Link>
         )
     }
 }
