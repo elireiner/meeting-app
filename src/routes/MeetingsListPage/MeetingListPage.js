@@ -49,7 +49,7 @@ export default class MeetingsListPage extends Component {
       )
     }
 
-    else if (!this.props.location.state.recurringMeetings) {
+    else if (!state.recurringMeetings) {
       const { usersMeetingList = [] } = this.context
 
       return usersMeetingList.map(meeting =>
