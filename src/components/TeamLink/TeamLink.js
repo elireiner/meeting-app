@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../MainLinks';
+import '../MainLinks.css';
 
 export default class TeamLink extends React.Component {
     render() {
