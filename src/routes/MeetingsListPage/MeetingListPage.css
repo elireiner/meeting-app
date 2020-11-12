@@ -1,0 +1,5 @@
+.MeetingsListPage {
+    height: 10em;
+    display: flex;
+    flex-direction: column
+}
