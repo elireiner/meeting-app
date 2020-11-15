@@ -4,6 +4,7 @@ import TeamApiService from '../../services/teams-api-service';
 import { Section } from '../../components/Utils/Utils';
 import TeamLink from '../../components/TeamLink/TeamLink';
 import Nav from '../../components/Nav/Nav';
+import './TeamListPage.css'
 
 export default class TeamListPage extends Component {
   static contextType = TeamsContext
@@ -35,6 +36,7 @@ export default class TeamListPage extends Component {
 
       return teamList.map(team =>
         <TeamLink
+          className='mainLink'
           key={team.team_id}
           team={team}
           onlyTrends={onlyTrends}
@@ -47,6 +49,7 @@ export default class TeamListPage extends Component {
 
       return usersTeamList.map(team =>
         <TeamLink
+          className='mainLink'
           key={team.team_id}
           team={team}
           onlyTrends={onlyTrends}
@@ -61,6 +64,7 @@ export default class TeamListPage extends Component {
     return (
       <>
         <Nav />
+        <h1>Your Teams</h1>
         <Section list className='TeamListPage'>
           {error
             ? <p className='red'>There was an error, try again</p>
