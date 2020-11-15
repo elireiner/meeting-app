@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css';
 import Nav from '../../components/Nav/Nav'
 import { Section } from '../../components/Utils/Utils'
