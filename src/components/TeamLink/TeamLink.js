@@ -22,7 +22,7 @@ export default class TeamLink extends React.Component {
         };
 
         return (
-            <Link to={path}>{this.props.team.teams_name}</Link>
+            <Link  className='mainLink' to={path}>{this.props.team.teams_name}</Link>
         )
     }
 }

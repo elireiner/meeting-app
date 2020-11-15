@@ -24,7 +24,7 @@ export default class MeetingLink extends React.Component {
 
         return (
             <>
-                <Link to={path}>{this.props.meeting.meeting_name}</Link>
+                <Link className='mainLink' to={path}>{this.props.meeting.meeting_name}</Link>
             </>
         )
     }

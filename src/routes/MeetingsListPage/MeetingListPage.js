@@ -43,7 +43,6 @@ export default class MeetingsListPage extends Component {
 
       return recurringMeetingList.map(meeting =>
         <MeetingLink
-          className='mainLink'
           key={meeting.meeting_id}
           meeting={meeting}
           render={render}
@@ -56,7 +55,6 @@ export default class MeetingsListPage extends Component {
 
       return usersMeetingList.map(meeting =>
         <MeetingLink
-          className='mainLink'
           key={meeting.meeting_id}
           meeting={meeting}
           onlyTrends={onlyTrends}
