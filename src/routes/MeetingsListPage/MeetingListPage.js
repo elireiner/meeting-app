@@ -72,7 +72,7 @@ export default class MeetingsListPage extends Component {
     return (
       <>
         <Nav />
-        <h1>Your meetings</h1>
+        <h1>Your Meetings</h1>
         <Section list className='MeetingsListPage'>
           {error
             ? <p className='red'>There was an error, try again</p>
