@@ -32,7 +32,7 @@ export default class Nav extends Component {
       };
     return (
       <div className='Nav__logged-in'>
-        <h1>Meeting App</h1>
+        <h1 className="appName">Meeting App</h1>
         <Link
           className="nav-link home-link"
           to={path}>

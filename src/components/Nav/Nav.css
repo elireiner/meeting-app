@@ -12,6 +12,8 @@
 .Nav h1 {
   margin: 0;
   color: white;
+  font-family: 'Balsamiq Sans', cursive;
+  font-weight: 700;
 }
 
 .Nav h1 a {
