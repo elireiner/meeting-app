@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MeetingsApiService from '../../services/meetings-api-service'
 import Nav from '../Nav/Nav'
+import './CreateMeeting.css'
 
 export default class CreateMeeting extends React.Component {
     constructor(props) {
@@ -79,92 +81,107 @@ export default class CreateMeeting extends React.Component {
     }
 
     render() {
+       let path = {
+            pathname: `/add-participants`
+        }
         return (
             <>
                 <Nav />
                 <h1>Create a meeting</h1>
-                <form
-                    onSubmit={this.handleSubmit}
-                >
-                    <div>
-                        <label className="create-meeting-label" htmlFor="name">
-                            Meeting Name
+                <section className="create-meeting-wrapper">
+                    {
+                        (!this.state.lastMessage) ?
+                            <form
+                                onSubmit={this.handleSubmit}
+                            >
+                                <div>
+                                    <label className="create-meeting-label" htmlFor="name">
+                                        Meeting Name
                         <input
-                                className="create-meeting-input"
-                                type="text"
-                                name="name"
-                                required
-                                value={this.state.name}
-                                onChange={this.handleFormChange}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="create-meeting-label" htmlFor="type">
-                            type
+                                            className="create-meeting-input"
+                                            type="text"
+                                            name="name"
+                                            required
+                                            value={this.state.name}
+                                            onChange={this.handleFormChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className="create-meeting-label" htmlFor="type">
+                                        type
                         <input
-                                className="create-meeting-input"
-                                type="text"
-                                name="type"
-                                required
-                                value={this.state.type}
-                                onChange={this.handleFormChange}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="create-meeting-label" htmlFor="description">
-                            description
+                                            className="create-meeting-input"
+                                            type="text"
+                                            name="type"
+                                            required
+                                            value={this.state.type}
+                                            onChange={this.handleFormChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className="create-meeting-label" htmlFor="description">
+                                        description
                 <input
-                                className="create-meeting-input"
-                                type="text"
-                                name="description"
-                                required
-                                value={this.state.description}
-                                onChange={this.handleFormChange}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="create-meeting-label" htmlFor="date">
-                            Meeting Date
+                                            className="create-meeting-input"
+                                            type="text"
+                                            name="description"
+                                            required
+                                            value={this.state.description}
+                                            onChange={this.handleFormChange}
+                                        />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className="create-meeting-label" htmlFor="date">
+                                        Meeting Date
                 <input className="create-meeting-input"
-                                type="date"
-                                name="date"
-                                required
-                                value={this.state.date}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="create-meeting-label" htmlFor="time">
-                            Meeting Time
+                                            type="date"
+                                            name="date"
+                                            required
+                                            value={this.state.date}
+                                            onChange={this.handleFormChange} />
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className="create-meeting-label" htmlFor="time">
+                                        Meeting Time
                 <input className="create-meeting-input"
-                                type="time"
-                                name="time"
-                                required
-                                value={this.state.time}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    {/*<div>
+                                            type="time"
+                                            name="time"
+                                            required
+                                            value={this.state.time}
+                                            onChange={this.handleFormChange} />
+                                    </label>
+                                </div>
+                                {/*<div>
                         <label>
                             Recurring Meeting
                 <input type="number" />
                         </label>
                     </div>
                     */}
-                    <div>
-                        <input
-                            type="submit"
-                        />
-                    </div>
-                </form>
-                {
-                    (this.state.lastMessage) ?
-                        <p>{this.state.lastMessage}</p> :
-                        <div></div>
-                }
+                                <div>
+                                    <input
+                                        type="submit"
+                                    />
+                                </div>
+                            </form>
+
+
+                            :
+                            <div></div>
+                    }
+                    {
+                        (this.state.lastMessage) ?
+                        <section>
+                               <p>{this.state.lastMessage}</p>
+                               <Link to={path}>Add participants</Link>
+                            </section> :
+                            <div></div>
+                    }
+                </section>
 
             </>
         )
