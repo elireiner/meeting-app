@@ -1,0 +1,13 @@
+.mainLink {
+    height: 2em;
+    line-height: 2em;
+    background-color: #e7f8ff;
+    border-radius: 5%;
+    margin-bottom: 1em;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: black;
+    font-size: 24px;
+    padding: .5em;
+    padding-left: 1em
+}
