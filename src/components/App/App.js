@@ -58,7 +58,7 @@ export default class App extends React.Component {
             component={TeamPage}
             exact />
           <Route
-            path='/new-meeting/:teamId'
+            path='/new-meeting/'
             component={CreateMeeting}
           />
           <Route
