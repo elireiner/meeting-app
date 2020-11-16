@@ -46,7 +46,8 @@ export default class Home extends React.Component {
         return (
             <>
                 <Nav page="home" />
-                <h1>Your Recurring Meetings</h1>
+                <h1>Meeting Trends</h1>
+                <h2>Measure. Improve. Repeat.</h2>
                 <section className="homeBody">
                     <Section list className='MeetingsListPage'>
                         {error
