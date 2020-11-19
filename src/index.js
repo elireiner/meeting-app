@@ -5,6 +5,7 @@ import App from './components/App/App';
 import { TeamsProvider } from './contexts/TeamsContext';
 import { MeetingsProvider } from './contexts/MeetingsContext';
 import { AssessmentsProvider } from './contexts/AssessmentsContext';
+import { UsersProvider } from './contexts/UsersContext';
 import './index.css';
 
 ReactDOM.render(
@@ -12,7 +13,9 @@ ReactDOM.render(
         <TeamsProvider>
             <MeetingsProvider>
                 <AssessmentsProvider>
-                    <App />
+                    <UsersProvider>
+                        <App />
+                    </UsersProvider>
                 </AssessmentsProvider>
             </MeetingsProvider>
         </TeamsProvider>
