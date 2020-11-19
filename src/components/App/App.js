@@ -4,6 +4,7 @@ import Home from '../../routes/Home/Home';
 import NewMeeting from '../NewMeeting/NewMeeting';
 import TeamListPage from '../../routes/TeamListPage/TeamListPage.js';
 import MeetingsListPage from '../../routes/MeetingsListPage/MeetingListPage.js';
+import ManageParticipants from '../../routes/ManageParticipants/ManageParticipants.js';
 import MeetingPage from '../MeetingPage/MeetingPage';
 import Assess from '../Assess/Assess';
 import TeamPage from '../TeamPage/TeamPage';
@@ -32,6 +33,10 @@ export default class App extends React.Component {
           <Route
             path='/teams'
             component={TeamListPage}
+          />
+          <Route
+            path={'/add-participants'}
+            component={ManageParticipants}
           />
           <Route
             path={'/new-meeting-teams'}
