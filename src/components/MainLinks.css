@@ -1,4 +1,8 @@
-.mainLink {
+.mainLinkDiv{
+    display: flex;
+    justify-content: space-between;
+}
+.mainLink, .mainLinkDiv{
     height: 2em;
     line-height: 2em;
     background-color: #e7f8ff;
@@ -10,4 +14,9 @@
     font-size: 24px;
     padding: .5em;
     padding-left: 1em
+}
+
+.mainLinkDiv p {
+    height: 2em;
+    margin: 0;
 }
