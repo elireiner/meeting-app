@@ -24,7 +24,7 @@ export default class UserLink extends React.Component {
             pathname: `user/${this.props.user._id}`,
             state: { user: this.props }
         }*/
-
+        const userId = this.props.user.user_id
         //const buttonText = (this.state.selected) ? 'unselect' : 'select'
         return (
             <>
@@ -32,10 +32,17 @@ export default class UserLink extends React.Component {
                 }
                 <div className="mainLinkDiv">
                     <p>{this.props.user.first_name} {this.props.user.last_name}</p>
-                    { 
-                    // <button onClick={this.handleClick}>{buttonText}</button> <FontAwesomeIcon icon={faCheckSquare} />
+                    {
+                        // <button onClick={this.handleClick}>{buttonText}</button> <FontAwesomeIcon icon={faCheckSquare} />
                     }
-                    <input className="selectCheckBox" type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                    <input
+                        className="selectCheckBox"
+                        type="checkbox"
+                        key={userId}
+                        name="vehicle1"
+                        value="Bike"
+                        onChange={(e) => this.props.handelSelection(e, userId)}
+                    />
                 </div>
 
             </>
