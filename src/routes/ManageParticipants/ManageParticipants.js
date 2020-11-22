@@ -7,6 +7,12 @@ import Nav from '../../components/Nav/Nav';
 import './ManageParticipants.css'
 
 export default class ManageParticipants extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      participants: {}
+    }
+  };
   static contextType = UsersContext
 
   async componentDidMount() {
@@ -26,12 +32,45 @@ export default class ManageParticipants extends Component {
       .catch(this.context.setError)
   }
 
-  renderUsers() {
-    let onlyTrends = false;
-    const path = this.props.match.path;
-    if (path === '/user-trends') {
-      onlyTrends = true;
+  handelSelection = async (e, userId) => {
+    let stateKey = `user${userId}SelectState`;
+    let object = {
+      userId: userId,
+      selected: e.target.checked
     }
+
+    await this.setState({
+      participants: [
+        ...this.state.participants,
+        {[stateKey]: object}
+      ]
+    })
+    console.log(this.state.participants)
+  }
+/*
+    let usersState = {
+      userId: userId,
+      selected: e.target.checked
+    }
+    let updatedState;
+
+    if (this.state.participants[`user${userId}SelectState`])
+      updatedState = {
+        participants: {
+          ...this.state.participants,
+          [this.state.participants[`user${userId}SelectState`]]: usersState 
+        }
+      }
+    else updatedState = {
+      participants: {
+        ...this.state.participants,
+        [`user${userId}SelectState`]: usersState
+      }
+    }
+    await this.setState(updatedState)
+    console.log(this.state.participants)
+*/
+  renderUsers() {
 
     const { usersList = [] } = this.context
 
@@ -39,8 +78,8 @@ export default class ManageParticipants extends Component {
       <UserLink
         className='mainLink'
         key={user.user_id}
+        handelSelection={this.handelSelection}
         user={user}
-        onlyTrends={onlyTrends}
       />
     )
   }
