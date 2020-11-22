@@ -1,19 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import MeetingsApiService from '../../services/meetings-api-service'
 import Nav from '../Nav/Nav'
+import { Redirect } from 'react-router'
 import './CreateMeeting.css'
 
 export default class CreateMeeting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            type: '',
+            name: ' ',
+            type: ' ',
             recurring: false,
-            description: '',
+            description: ' ',
             date: '',
             time: '',
+            afterFrom: 'Success!',
+            redirect: false
         }
     };
 
@@ -72,25 +74,33 @@ export default class CreateMeeting extends React.Component {
             meeting_time: this.createDate(),
         }
         MeetingsApiService.postMeeting(newMeeting)
-            .then(res => {
-                this.setState({
-                    lastMessage: 'Success! New meeting created!'
+            .then(async res => {
+                //TODO check if response is ok; if not throw error; add catch
+                await this.setState({
+                    success: true
                 })
+                setTimeout(() => {
+                    this.setState({
+                        afterFrom: 'Redirecting...'
+                    })
+                }, 1000);
+                setTimeout(() => {
+                    this.setState({
+                        redirect: true
+                    })
+                }, 2000);
 
             })
     }
 
     render() {
-       let path = {
-            pathname: `/add-participants`
-        }
         return (
             <>
                 <Nav />
                 <h1>Create a meeting</h1>
                 <section className="create-meeting-wrapper">
                     {
-                        (!this.state.lastMessage) ?
+                        (!this.state.success) ?
                             <form
                                 onSubmit={this.handleSubmit}
                             >
@@ -139,7 +149,7 @@ export default class CreateMeeting extends React.Component {
                 <input className="create-meeting-input"
                                             type="date"
                                             name="date"
-                                            required
+                                            // required
                                             value={this.state.date}
                                             onChange={this.handleFormChange} />
                                     </label>
@@ -150,7 +160,7 @@ export default class CreateMeeting extends React.Component {
                 <input className="create-meeting-input"
                                             type="time"
                                             name="time"
-                                            required
+                                            //required
                                             value={this.state.time}
                                             onChange={this.handleFormChange} />
                                     </label>
@@ -171,14 +181,11 @@ export default class CreateMeeting extends React.Component {
 
 
                             :
-                            <div></div>
+                            <p>{this.state.afterFrom}</p>
                     }
                     {
-                        (this.state.lastMessage) ?
-                        <section>
-                               <p>{this.state.lastMessage}</p>
-                               <Link to={path}>Add participants</Link>
-                            </section> :
+                        (this.state.success && this.state.redirect) ?
+                            <Redirect to="/add-participants" /> :
                             <div></div>
                     }
                 </section>
