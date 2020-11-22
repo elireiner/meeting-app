@@ -40,36 +40,14 @@ export default class ManageParticipants extends Component {
     }
 
     await this.setState({
-      participants: [
+      participants: {
         ...this.state.participants,
-        {[stateKey]: object}
-      ]
+        [stateKey]: object
+      }
     })
     console.log(this.state.participants)
   }
-/*
-    let usersState = {
-      userId: userId,
-      selected: e.target.checked
-    }
-    let updatedState;
 
-    if (this.state.participants[`user${userId}SelectState`])
-      updatedState = {
-        participants: {
-          ...this.state.participants,
-          [this.state.participants[`user${userId}SelectState`]]: usersState 
-        }
-      }
-    else updatedState = {
-      participants: {
-        ...this.state.participants,
-        [`user${userId}SelectState`]: usersState
-      }
-    }
-    await this.setState(updatedState)
-    console.log(this.state.participants)
-*/
   renderUsers() {
 
     const { usersList = [] } = this.context
@@ -78,7 +56,7 @@ export default class ManageParticipants extends Component {
       <UserLink
         className='mainLink'
         key={user.user_id}
-        handelSelection={this.handelSelection}
+        handelSelection={(e, userId) => this.handelSelection(e, userId)}
         user={user}
       />
     )
