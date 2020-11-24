@@ -56,7 +56,21 @@ const MeetingsApiService = {
           : res.json()
       )
   },
-
+  postMeetingParticipants(participants) {
+     return fetch(`${config.API_ENDPOINT}/meetings/participants`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'authorization': `Bearer ${config.API_KEY}`,
+        },
+        body: JSON.stringify(participants),
+      })
+        .then(res =>
+          (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+        )
+  },
   getRecurringMeeting(userId) {
 
     return fetch(`${config.API_ENDPOINT}/meetings/recurring/${userId}`, {
