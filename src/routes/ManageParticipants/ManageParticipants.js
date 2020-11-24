@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import UsersContext from '../../contexts/UsersContext';
 import UserApiService from '../../services/users-api-service';
+import MeetingApiService from '../../services/meetings-api-service';
 import { Section } from '../../components/Utils/Utils';
 import UserLink from '../../components/UserLink/UserLink';
 import Nav from '../../components/Nav/Nav';
 import './ManageParticipants.css'
 
 export default class ManageParticipants extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      participants: {}
-    }
-  };
   static contextType = UsersContext
 
   async componentDidMount() {
@@ -32,34 +27,35 @@ export default class ManageParticipants extends Component {
       .catch(this.context.setError)
   }
 
-  handelSelection = async (e, userId) => {
-    let stateKey = `user${userId}SelectState`;
-    let object = {
-      userId: userId,
-      selected: e.target.checked
-    }
+  createParticipantsList = () => {
+    return Array
+      .from(document.getElementsByName('checkBox'))
+      .filter((checkbox) => checkbox.checked)
+      .map((checkbox) => checkbox.value);
+  }
 
-    await this.setState({
-      participants: {
-        ...this.state.participants,
-        [stateKey]: object
-      }
-    })
-    console.log(this.state.participants)
+  handelSubmit = async (e) => {
+    e.preventDefault();
+    const list = await this.createParticipantsList()
+    const participantsObject = {
+      participants: list,
+      meetingId: 1
+    }
+    console.log(participantsObject)
+    MeetingApiService.postMeetingParticipants(participantsObject)
+      .catch(e)
   }
 
   renderUsers() {
-
     const { usersList = [] } = this.context
-
-    return usersList.map(user =>
+    return (usersList.map(user =>
       <UserLink
         className='mainLink'
         key={user.user_id}
-        handelSelection={(e, userId) => this.handelSelection(e, userId)}
+
         user={user}
       />
-    )
+    ))
   }
 
   render() {
@@ -72,7 +68,21 @@ export default class ManageParticipants extends Component {
         <Section list className='ManageParticipantsPage'>
           {error
             ? <p className='red'>There was an error, try again</p>
-            : this.renderUsers()}
+            : this.renderUsers()
+          }
+          {!error ?
+            <div className="blockDiv">
+              <p>Add all selected users</p>
+              <input
+                className="selectSubmit"
+                type="submit"
+                name="selectSubmit"
+                value="Submit"
+                onClick={(e) => this.handelSubmit(e)}
+              />
+            </div> :
+            <></>
+          }
         </Section>
       </>
     )
