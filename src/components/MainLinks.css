@@ -1,8 +1,8 @@
-.mainLinkDiv{
+.blockDiv{
     display: flex;
     justify-content: space-between;
 }
-.mainLink, .mainLinkDiv{
+.mainLink, .blockDiv{
     height: 2em;
     line-height: 2em;
     background-color: #e7f8ff;
@@ -16,7 +16,7 @@
     padding-left: 1em
 }
 
-.mainLinkDiv p {
+.blockDiv p {
     height: 2em;
     margin: 0;
 }
