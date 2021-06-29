@@ -74,6 +74,10 @@ export default class CreateMeeting extends React.Component {
             meeting_time: this.createDate(),
         }
         MeetingsApiService.postMeeting(newMeeting)
+            .then(res => {
+                console.log(res)
+                //todo add meeting id to state
+            })
             .then(async res => {
                 //TODO check if response is ok; if not throw error; add catch
                 await this.setState({
@@ -91,6 +95,7 @@ export default class CreateMeeting extends React.Component {
                 }, 2000);
 
             })
+
     }
 
     render() {
@@ -184,6 +189,7 @@ export default class CreateMeeting extends React.Component {
                             <p>{this.state.afterFrom}</p>
                     }
                     {
+                        //todo pass meeting with state get from current state
                         (this.state.success && this.state.redirect) ?
                             <Redirect to="/add-participants" /> :
                             <div></div>
