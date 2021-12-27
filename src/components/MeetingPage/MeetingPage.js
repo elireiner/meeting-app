@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav'
+import './MeetingPage.css'
 
 export default class MeetingPage extends React.Component {
     render() {
@@ -18,13 +19,16 @@ export default class MeetingPage extends React.Component {
 
         return (
             <>
-              <Nav />
-                <p>{meeting.meeting_time}</p>
-                <p>{meeting.meeting_name}</p>
-                <p>{meeting.type}</p>
-                <p>{meeting.department}</p>
-                <p>{meeting.description}</p>
-                <Link to={path}>Assess</Link>
+                <Nav />
+                <div className="meeting-page-body">
+                    <p className="meeting-page-body-item">{meeting.meeting_time}</p>
+                    <p className="meeting-page-body-item">{meeting.meeting_name}</p>
+                    {//This will not be needed in V1 <p className="meeting-page-body-item">{meeting.type}</p>
+                    //This will not be needed in V1 <p className="meeting-page-body-item">{meeting.department}</p>
+                }
+                    <p className="meeting-page-body-item">{meeting.description}</p>
+                    <Link to={path} className="meeting-page-body-item">Assess</Link>
+                </div>
 
             </>
         )
