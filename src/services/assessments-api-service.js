@@ -72,7 +72,7 @@ const AssessmentsApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-         'authorization': `Bearer ${config.API_KEY}`
+        'authorization': `Bearer ${config.API_KEY}`
       },
       body: JSON.stringify(AssessmentData),
     })
