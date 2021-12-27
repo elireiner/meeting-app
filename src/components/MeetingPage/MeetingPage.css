@@ -1,0 +1,9 @@
+.meeting-page-body{
+    width: 80%;
+    margin: auto;
+    background-color: #e7f8ff;
+}
+
+.meeting-page-body-item{
+    padding-left: 5%;
+}
