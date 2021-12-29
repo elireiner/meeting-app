@@ -23,11 +23,11 @@ export default class MeetingPage extends React.Component {
                 <div className="meeting-page-body">
                     <p className="meeting-page-body-item">{meeting.meeting_time}</p>
                     <p className="meeting-page-body-item">{meeting.meeting_name}</p>
-                    {//This will not be needed in V1 <p className="meeting-page-body-item">{meeting.type}</p>
-                    //This will not be needed in V1 <p className="meeting-page-body-item">{meeting.department}</p>
+                    {//This is not needed in V1 <p className="meeting-page-body-item">{meeting.type}</p>
+                    //This will not needed in V1 <p className="meeting-page-body-item">{meeting.department}</p>
                 }
                     <p className="meeting-page-body-item">{meeting.description}</p>
-                    <Link to={path} className="meeting-page-body-item">Assess</Link>
+                    <Link to={path} className="meeting-page-body-item meeting-page-asses-link">Assess</Link>
                 </div>
 
             </>
