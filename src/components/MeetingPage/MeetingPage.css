@@ -1,9 +1,16 @@
 .meeting-page-body{
     width: 80%;
     margin: auto;
+    margin-top: 10%;
     background-color: #e7f8ff;
+    overflow: auto;
 }
 
 .meeting-page-body-item{
     padding-left: 5%;
+}
+
+.meeting-page-asses-link{
+    display: inline-block;
+    margin-block-end: 1em;
 }
