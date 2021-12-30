@@ -100,12 +100,13 @@ export default class Assess extends React.Component {
                 <Nav />
                 <div className="assess-page-body">
 
-                    <h1>How great was the meeting on these metrics?</h1>
-                    <h2>Rate on a scale from one to five with 1 being terrible and 5 being great</h2>
+                    <h1 className="assessment-trends-page-h1"> How great was the meeting on these metrics?</h1>
+                    <h2 className="assessment-trends-page-h2">Rate on a scale from one to five with 1 being terrible and 5 being great</h2>
                     <form
+                        className="assessment-form"
                         onSubmit={this.handleSubmit}
                     >
-                        <div>
+                      
                             <label className="create-assessment-label" htmlFor="one">
                                 How necessary was this meeting?
                                 <input
@@ -118,8 +119,7 @@ export default class Assess extends React.Component {
                                     value={this.state.one}
                                     onChange={this.handleFormChange} />
                             </label>
-                        </div>
-                        <div>
+                  
 
                             <label className="create-assessment-label" htmlFor="two">
                                 Before the meeting, how well did we clarify the desired outcomes?
@@ -133,8 +133,7 @@ export default class Assess extends React.Component {
                                     value={this.state.two}
                                     onChange={this.handleFormChange} />
                             </label>
-                        </div>
-                        <div>
+                     
                             <label className="create-assessment-label" htmlFor="three" >
                                 How well did we stay on point?
                                 <input
@@ -147,8 +146,7 @@ export default class Assess extends React.Component {
                                     value={this.state.three}
                                     onChange={this.handleFormChange} />
                             </label>
-                        </div>
-                        <div>
+                      
 
                             <label className="create-assessment-label" htmlFor="four">
                                 How well did we summarize and agree on next steps?
@@ -162,8 +160,7 @@ export default class Assess extends React.Component {
                                     value={this.state.four}
                                     onChange={this.handleFormChange} />
                             </label>
-                        </div>
-                        <div>
+                     
 
                             <label className="create-assessment-label" htmlFor="five">
                                 How strongly did we encourage open discussion?
@@ -177,10 +174,10 @@ export default class Assess extends React.Component {
                                     value={this.state.five}
                                     onChange={this.handleFormChange} />
                             </label>
-                        </div>
-                        <div>
-                            <input type="submit" />
-                        </div>
+                      
+                       
+                            <input className="create-assessment-input-submit" type="submit" />
+                        
 
                     </form>
                     {

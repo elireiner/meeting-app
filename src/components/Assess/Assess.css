@@ -1,16 +1,23 @@
-.meeting-page-body{
-    width: 80%;
-    margin: auto;
-    margin-top: 10%;
-    background-color: #e7f8ff;
-    overflow: auto;
+.assess-page-body {
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+  background-color: #e7f8ff;
+  overflow: auto;
 }
 
-.meeting-page-body-item{
-    padding-left: 5%;
+.assessment-form {
+  display: flex;
+  flex-direction: column;
 }
 
-.meeting-page-asses-link{
-    display: inline-block;
-    margin-block-end: 1em;
+.assessment-trends-page-h1,
+.assessment-trends-page-h2,
+.create-assessment-label {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.create-assessment-input-submit {
+  width: 80%;
 }
