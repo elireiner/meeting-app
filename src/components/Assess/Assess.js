@@ -2,6 +2,7 @@ import React from 'react';
 import AssessmentsApiService from '../../services/assessments-api-service';
 import Nav from '../Nav/Nav';
 import uuid from "uuid";
+import './Assess.css'
 
 export default class Assess extends React.Component {
     constructor(props) {
@@ -97,94 +98,97 @@ export default class Assess extends React.Component {
         return (
             <>
                 <Nav />
-                <h1>How great was the meeting on these metrics?</h1>
-                <h2>Rate on a scale from one to five with 1 being terrible and 5 being great</h2>
-                <form
-                    onSubmit={this.handleSubmit}
-                >
-                    <div>
-                        <label className="create-assessment-label" htmlFor="one">
-                            How necessary was this meeting?
-                            <input
-                                className="create-assessment-input"
-                                type="number"
-                                name="one"
-                                min="1"
-                                max="5"
-                                required
-                                value={this.state.one}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    <div>
+                <div className="assess-page-body">
 
-                        <label className="create-assessment-label" htmlFor="two">
-                            Before the meeting, how well did we clarify the desired outcomes?
-                            <input
-                                className="create-assessment-input"
-                                type="number"
-                                name="two"
-                                min="1"
-                                max="5"
-                                required
-                                value={this.state.two}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    <div>
-                        <label className="create-assessment-label" htmlFor="three" >
-                            How well did we stay on point?
-                            <input
-                                className="create-assessment-input"
-                                type="number"
-                                name="three"
-                                min="1"
-                                max="5"
-                                required
-                                value={this.state.three}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    <div>
+                    <h1>How great was the meeting on these metrics?</h1>
+                    <h2>Rate on a scale from one to five with 1 being terrible and 5 being great</h2>
+                    <form
+                        onSubmit={this.handleSubmit}
+                    >
+                        <div>
+                            <label className="create-assessment-label" htmlFor="one">
+                                How necessary was this meeting?
+                                <input
+                                    className="create-assessment-input"
+                                    type="number"
+                                    name="one"
+                                    min="1"
+                                    max="5"
+                                    required
+                                    value={this.state.one}
+                                    onChange={this.handleFormChange} />
+                            </label>
+                        </div>
+                        <div>
 
-                        <label className="create-assessment-label" htmlFor="four">
-                            How well did we summarize and agree on next steps?
-                            <input
-                                className="create-assessment-input"
-                                type="number"
-                                name="four"
-                                min="1"
-                                max="5"
-                                required
-                                value={this.state.four}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    <div>
+                            <label className="create-assessment-label" htmlFor="two">
+                                Before the meeting, how well did we clarify the desired outcomes?
+                                <input
+                                    className="create-assessment-input"
+                                    type="number"
+                                    name="two"
+                                    min="1"
+                                    max="5"
+                                    required
+                                    value={this.state.two}
+                                    onChange={this.handleFormChange} />
+                            </label>
+                        </div>
+                        <div>
+                            <label className="create-assessment-label" htmlFor="three" >
+                                How well did we stay on point?
+                                <input
+                                    className="create-assessment-input"
+                                    type="number"
+                                    name="three"
+                                    min="1"
+                                    max="5"
+                                    required
+                                    value={this.state.three}
+                                    onChange={this.handleFormChange} />
+                            </label>
+                        </div>
+                        <div>
 
-                        <label className="create-assessment-label" htmlFor="five">
-                            How strongly did we encourage open discussion?
-                            <input
-                                className="create-assessment-input"
-                                type="number"
-                                name="five"
-                                min="1"
-                                max="5"
-                                required
-                                value={this.state.five}
-                                onChange={this.handleFormChange} />
-                        </label>
-                    </div>
-                    <div>
-                        <input type="submit" />
-                    </div>
+                            <label className="create-assessment-label" htmlFor="four">
+                                How well did we summarize and agree on next steps?
+                                <input
+                                    className="create-assessment-input"
+                                    type="number"
+                                    name="four"
+                                    min="1"
+                                    max="5"
+                                    required
+                                    value={this.state.four}
+                                    onChange={this.handleFormChange} />
+                            </label>
+                        </div>
+                        <div>
 
-                </form>
-         {
-                    (this.state.lastMessage) ?
-                        <p>{this.state.lastMessage}</p> :
-                        <div></div>
-                }
+                            <label className="create-assessment-label" htmlFor="five">
+                                How strongly did we encourage open discussion?
+                                <input
+                                    className="create-assessment-input"
+                                    type="number"
+                                    name="five"
+                                    min="1"
+                                    max="5"
+                                    required
+                                    value={this.state.five}
+                                    onChange={this.handleFormChange} />
+                            </label>
+                        </div>
+                        <div>
+                            <input type="submit" />
+                        </div>
+
+                    </form>
+                    {
+                        (this.state.lastMessage) ?
+                            <p>{this.state.lastMessage}</p> :
+                            <div></div>
+                    }
+                </div>
             </>
         )
     }
