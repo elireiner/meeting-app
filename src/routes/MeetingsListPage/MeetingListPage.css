@@ -4,7 +4,7 @@
     flex-direction: column
 }
 
-h1 {
+.meeting-list-page-header {
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
