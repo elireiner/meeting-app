@@ -162,7 +162,7 @@ export default class Assess extends React.Component {
                             </label>
                      
 
-                            <label className="create-assessment-label" htmlFor="five">
+                            <label className="create-assessment-label last-create-assessment-label" htmlFor="five">
                                 How strongly did we encourage open discussion?
                                 <input
                                     className="create-assessment-input"
@@ -182,7 +182,7 @@ export default class Assess extends React.Component {
                     </form>
                     {
                         (this.state.lastMessage) ?
-                            <p>{this.state.lastMessage}</p> :
+                            <p className="assess-last-message">{this.state.lastMessage}</p> :
                             <div></div>
                     }
                 </div>

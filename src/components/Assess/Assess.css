@@ -11,13 +11,32 @@
   flex-direction: column;
 }
 
+.assessment-trends-page-h1{
+  font-size: 1.5em;
+}
+.assessment-trends-page-h2{
+  font-size: 1em;
+}
 .assessment-trends-page-h1,
 .assessment-trends-page-h2,
 .create-assessment-label {
   padding-left: 5%;
   padding-right: 5%;
+  margin-block-end: .75em;
+}
+
+.last-create-assessment-label{
+  margin-block-end: 1.25em;
 }
 
 .create-assessment-input-submit {
   width: 80%;
+  margin: auto;
+  height: 2.5em;
+  margin-block-end: 2em;
+}
+
+.assess-last-message{
+  text-align: center;
+  margin-block-end: 2em;
 }
