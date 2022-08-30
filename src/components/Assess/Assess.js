@@ -99,7 +99,6 @@ export default class Assess extends React.Component {
             <>
                 <Nav />
                 <div className="assess-page-body">
-
                     <h1 className="assessment-trends-page-h1"> How great was the meeting on these metrics?</h1>
                     <h2 className="assessment-trends-page-h2">Rate on a scale from one to five with 1 being terrible and 5 being great</h2>
                     <form
