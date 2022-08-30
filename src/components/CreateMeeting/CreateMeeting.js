@@ -1,7 +1,7 @@
 import React from 'react';
 import MeetingsApiService from '../../services/meetings-api-service'
 import Nav from '../Nav/Nav'
-import { Redirect } from 'react-router'
+// not needed for V1:import { Redirect } from 'react-router'
 import './CreateMeeting.css'
 
 export default class CreateMeeting extends React.Component {
@@ -14,8 +14,10 @@ export default class CreateMeeting extends React.Component {
             description: ' ',
             date: '',
             time: '',
-            afterFrom: 'Success!',
-            redirect: false
+            submitAttempted: false,
+            afterFrom: false,
+            success: false,
+            // not needed for V1: redirect: false
         }
     };
 
@@ -28,36 +30,13 @@ export default class CreateMeeting extends React.Component {
     handleFormChange = async (event) => {
         const target = event.target;
 
-        /* if (target.name === 'onlineMedium' || target.name === 'inPerson') {
-             if (event.target.checked && !this.state[target.name]) {
-                 this.setState({
-                     [target.name]: true,
-                 });
-             }
-             else if (event.target.checked && this.state[target.name]) {
-                 this.setState({
-                     [target.name]: false,
-                 });
-             }
- 
-         }*/
-
-        //else {
         const value = target.value;
         const name = target.name;
-
-        /* if (name === 'tutorSubjects') {
-             let subjects = [];
-             subjects.push(value);
-             this.setState({
-                 subjects
-             });
-         }*/
 
         await this.setStateAsync({
             [name]: value
         })
-        //  }
+
     }
 
     createDate() {
@@ -76,23 +55,25 @@ export default class CreateMeeting extends React.Component {
         MeetingsApiService.postMeeting(newMeeting)
             .then(res => {
                 console.log(res)
-                //todo add meeting id to state
             })
             .then(async res => {
-                //TODO check if response is ok; if not throw error; add catch
+                //TODO check if response is ok; if not throw error, catch, add to state
                 await this.setState({
-                    success: true
+                    success: true,
+                    submitAttempted: true
                 })
+       
+                /*not needed for V1:
                 setTimeout(() => {
-                    this.setState({
-                        afterFrom: 'Redirecting...'
-                    })
-                }, 1000);
-                setTimeout(() => {
-                    this.setState({
-                        redirect: true
-                    })
-                }, 2000);
+                     this.setState({
+                         afterFrom: 'Redirecting...'
+                     })
+                 }, 1000);
+                 setTimeout(() => {
+                     this.setState({
+                         redirect: true
+                     })
+                 }, 2000);*/
 
             })
 
@@ -102,17 +83,19 @@ export default class CreateMeeting extends React.Component {
         return (
             <>
                 <Nav />
-                <h1>Create a meeting</h1>
                 <section className="create-meeting-wrapper">
                     {
-                        (!this.state.success) ?
+                        !this.state.success &&
+                        <>
+                      <h1 className='create-meeting'>Create a meeting</h1>
                             <form
+                                className="create-meeting-form"
                                 onSubmit={this.handleSubmit}
                             >
-                                <div>
+                            
                                     <label className="create-meeting-label" htmlFor="name">
                                         Meeting Name
-                        <input
+                                        <input
                                             className="create-meeting-input"
                                             type="text"
                                             name="name"
@@ -121,11 +104,11 @@ export default class CreateMeeting extends React.Component {
                                             onChange={this.handleFormChange}
                                         />
                                     </label>
-                                </div>
-                                <div>
+                                
+                                
                                     <label className="create-meeting-label" htmlFor="type">
-                                        type
-                        <input
+                                        Type
+                                        <input
                                             className="create-meeting-input"
                                             type="text"
                                             name="type"
@@ -134,11 +117,10 @@ export default class CreateMeeting extends React.Component {
                                             onChange={this.handleFormChange}
                                         />
                                     </label>
-                                </div>
-                                <div>
+                                
                                     <label className="create-meeting-label" htmlFor="description">
-                                        description
-                <input
+                                        Description
+                                        <input
                                             className="create-meeting-input"
                                             type="text"
                                             name="description"
@@ -147,53 +129,49 @@ export default class CreateMeeting extends React.Component {
                                             onChange={this.handleFormChange}
                                         />
                                     </label>
-                                </div>
-                                <div>
+                           
                                     <label className="create-meeting-label" htmlFor="date">
                                         Meeting Date
-                <input className="create-meeting-input"
+                                        <input className="create-meeting-input"
                                             type="date"
                                             name="date"
                                             // required
                                             value={this.state.date}
                                             onChange={this.handleFormChange} />
                                     </label>
-                                </div>
-                                <div>
-                                    <label className="create-meeting-label" htmlFor="time">
+                            
+                                    <label className="create-meeting-label last-create-meeting-label" htmlFor="time">
                                         Meeting Time
-                <input className="create-meeting-input"
+                                        <input className="create-meeting-input"
                                             type="time"
                                             name="time"
                                             //required
                                             value={this.state.time}
                                             onChange={this.handleFormChange} />
                                     </label>
-                                </div>
-                                {/*<div>
-                        <label>
-                            Recurring Meeting
-                <input type="number" />
-                        </label>
-                    </div>
-                    */}
-                                <div>
-                                    <input
-                                        type="submit"
-                                    />
-                                </div>
+                              
+
+                                    <input className="create-meeting-input-submit" type="submit" />
+                            
                             </form>
+                            </>
 
-
-                            :
-                            <p>{this.state.afterFrom}</p>
                     }
-                    {
-                        //todo pass meeting with state get from current state
+
+                    {this.state.submitAttempted && this.state.success &&
+                        <p className='meeting-last-message'>Meeting created</p> 
+                    }
+                    {this.state.submitAttempted && !this.state.success &&
+                        <p className='meeting-last-message'>Error: meeting not created</p>
+                    }
+
+
+                    {/* not needed for V1:
+                        // todo pass meeting with state get from current state
                         (this.state.success && this.state.redirect) ?
                             <Redirect to="/add-participants" /> :
                             <div></div>
-                    }
+                    */}
                 </section>
 
             </>
