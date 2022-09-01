@@ -2,6 +2,7 @@ import React from 'react';
 import AssessmentsContext from '../../contexts/AssessmentsContext'
 import AssessmentsApiService from '../../services/assessments-api-service'
 import Nav from '../Nav/Nav';
+import './MeetingTrends.css'
 
 export default class MeetingTrends extends React.Component {
     static contextType = AssessmentsContext
@@ -17,19 +18,27 @@ export default class MeetingTrends extends React.Component {
             .catch(this.context.setError)
 
     }
+    round(num, decimalPlaces = 2) {
+        var p = Math.pow(10, decimalPlaces);
+        var n = (num * p) * (1 + Number.EPSILON);
+        return Math.round(n) / p;
+    }
 
     render() {
+
         const { usersRecurringAssessmentList = [] } = this.context
         const metrics = usersRecurringAssessmentList.map(metric => {
-            return <li key={metric.metric_id}>Metric {metric.metric_id}: {metric.cumulative_avg}</li>
+            return <p className="trends" key={metric.metric_id}>Metric {metric.metric_id}: {this.round(metric.cumulative_avg)}</p>
         })
+        console.log(metrics)
         return (
             <>
-               <Nav />
-            <h1>Cumulative average for recurring meeting {this.props.location.state.meeting.meeting_id} </h1>
-                <ul>
+                <Nav />
+                <div className="trends-page-body">
+                    <h1 className="trends-page-h1">Average Rating</h1>
+                    <h2 className="trends-page-h2"> Meeting {this.props.location.state.meeting.meeting_id} </h2>
                     {metrics}
-                </ul>
+                </div>
             </>
         )
     }
