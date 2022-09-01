@@ -1,0 +1,22 @@
+.trends-page-body {
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+    background-color: #e7f8ff;
+    overflow: auto;
+  }
+  
+  .trends-trends-page-h1{
+    font-size: 1.5em;
+  }
+  .trends-trends-page-h2{
+    font-size: 1em;
+  }
+  .trends-page-h1,
+  .trends-page-h2,
+  p.trends {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-block-end: .75em;
+  }
+  
